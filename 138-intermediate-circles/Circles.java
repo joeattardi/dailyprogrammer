@@ -7,11 +7,11 @@ public class Circles {
     double w = Double.parseDouble(args[3]);
 
     double combinedArea = 2 * Math.PI;
-    double distance = Math.sqrt(Math.pow(u - x, 2) + Math.pow(w - y, 2));
+    double distance = Math.hypot(u - x, w - y);
 
     if (distance < 2) {
       double angle = 2 * Math.acos(distance/2);
-      double overlapArea = 2 * (0.5 * (angle - Math.sin(angle)));
+      double overlapArea = angle - Math.sin(angle);
       combinedArea -= overlapArea;
     }
 
