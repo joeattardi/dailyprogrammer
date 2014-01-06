@@ -11,9 +11,10 @@ public class AdjacencyMatrix {
 
     int[][] matrix = new int[numVertices][numVertices];
 
+    Pattern transitionPattern = Pattern.compile("((?:\\d+ )+)-> ((?:\\d+ ?)+)");
+
     for (int edge = 0; edge < numLines; edge++) {
-      String transition = scanner.nextLine();
-      Matcher m = Pattern.compile("((?:\\d+ )+)-> ((?:\\d+ ?)+)").matcher(transition);
+      Matcher m = transitionPattern.matcher(scanner.nextLine());
       if (m.matches()) {
         for (String s : m.group(1).split(" ")) {
           for (String v : m.group(2).split(" ")) {
