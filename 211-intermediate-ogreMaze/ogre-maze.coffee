@@ -37,15 +37,15 @@ class OgreMaze
 
 
   findReachablePoints: (point) ->
-    reachablePoints = []
-    if point.x > 0 and @pointPassable(new Point(point.x - 1, point.y))
-      reachablePoints.push new Point(point.x - 1, point.y)
+    reachablePoints = []    
     if point.x < 8 and @pointPassable(new Point(point.x + 1, point.y))
       reachablePoints.push new Point(point.x + 1, point.y)
     if point.y > 0 and @pointPassable(new Point(point.x, point.y - 1))
       reachablePoints.push new Point(point.x, point.y - 1)
     if point.y < 8 and @pointPassable(new Point(point.x, point.y + 1))
       reachablePoints.push new Point(point.x, point.y + 1)
+    if point.x > 0 and @pointPassable(new Point(point.x - 1, point.y))
+      reachablePoints.push new Point(point.x - 1, point.y)      
     reachablePoints
 
   buildPath: (previous, lootPoint) ->
